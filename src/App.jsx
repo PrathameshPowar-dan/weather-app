@@ -100,7 +100,7 @@ function App() {
                 <img src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`} alt="weather img" width={100} />
               </div>
               <div className="temp-date-day w-screen h-56 md:h-36 flex flex-col justify-center items-center">
-                <div className="temprature text-7xl text-center">
+                <div className="temprature text-6xl text-center">
                   <span id='degree'><b>{weatherData.temp}</b></span>
                   <span><b>°</b></span>
                   <span id='FC'><b>C</b></span>
