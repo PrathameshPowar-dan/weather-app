@@ -137,7 +137,7 @@ function App() {
                     <p className='text-xs md:text-lg'>{weatherData.pressure} <span>hPa</span></p>
                   </div>
                 </div>
-                <div className="graph h-96 md:h-72 w-11/12 md:w-3/5 bg-black/30 rounded-xl p-4">
+                <div className="graph h-80 md:h-72 w-11/12 md:w-3/5 bg-black/30 rounded-xl p-4">
                   <h2 className="text-white font-semibold text-center text-lg mb-2">Hourly Forecast</h2>
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={sampleData}>
