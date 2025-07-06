@@ -1,12 +1,44 @@
-# React + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive weather web application built using **React**, **Vite**, and **Tailwind CSS**.  
+It fetches real-time data from the OpenWeather API and displays temperature, humidity, air pressure, wind speed, and includes a graph for the upcoming hours. Visuals adapt dynamically based on the current weather using background videos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 Search weather by city name
+- 🌡️ Current temperature, wind speed (in km/h), humidity, pressure, and "feels like" values
+- 📊 Responsive graph (12-hour on desktop, 4-hour on mobile) using `Recharts`
+- 🎥 Dynamic video backgrounds based on weather type (`Clear`, `Rain`, `Clouds`, etc.)
+- 📱 Mobile-first responsive UI with Tailwind CSS
+- ⚡ Fast build and dev experience with Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Built With
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Recharts](https://recharts.org/)
+- [OpenWeather API](https://openweathermap.org/api)
+
+---
+
+## 🧪 Demo
+
+
+🌍 [Live Demo](https://dan-weatherapp.netlify.app/)
+
+---
+
+## 🧰 Getting Started
+
+### 🔧 Installation
+
+```bash
+git clone https://github.com/PrathameshPowar-dan/weather-app.git
+cd weather-app
+npm install
+npm run dev
