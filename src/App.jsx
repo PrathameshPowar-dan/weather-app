@@ -17,6 +17,7 @@ function App() {
 
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
 
       if (!response.ok) {
         alert("Enter a Valid Name")
@@ -44,12 +45,17 @@ function App() {
     CheckWeather("Tokyo")
   }, [])
 
-  const times = ['12AM', '3AM', '6AM', '9AM', '12PM', '3PM', '6PM', '9PM'];
+  const hours = Array.from({ length: 8 }, (_, i) => {
+    const time = new Date();
+    time.setHours(time.getHours() + i);
+    return time.toLocaleTimeString([], { hour: 'numeric', hour12: true }).replace(/\s/g, '');
+  });
 
-  const sampleData = times.map((time) => ({
+
+  const graphData = hours.map(time => ({
     time,
-    temp: Math.floor(Math.random() * 40),
-    wind: Math.floor(Math.random() * 15),
+    temp: weatherData.temp + Math.floor(Math.random() * 3 - 1), 
+    wind: Math.floor(weatherData.speed + Math.random() * 2 - 1),
   }));
 
   const now = new Date();
@@ -78,13 +84,18 @@ function App() {
         ></video>
         <div className="content relative z-10 text-white">
           <div className="w-full h-[80px] bg-transparent p-4 flex justify-center items-center">
-            <div  className="flex justify-center items-center w-full max-w-xl h-full p-3.5">
+            <div className="flex justify-center items-center w-full max-w-xl h-full p-3.5">
               <input
                 type="text"
                 placeholder="Search city..."
                 aria-label="Search city"
                 id='search-bar'
                 ref={searchInput}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    CheckWeather(searchInput.current.value);
+                  }
+                }}
                 className="w-[70%] h-[60%] rounded-l-xl text-black text-lg bg-white/40 placeholder-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 style={{ padding: "10px" }}
               />
@@ -140,7 +151,7 @@ function App() {
                 <div className="graph h-80 md:h-72 w-11/12 md:w-3/5 bg-black/30 rounded-xl p-4">
                   <h2 className="text-white font-semibold text-center text-lg mb-2">Hourly Forecast</h2>
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={sampleData}>
+                    <LineChart data={graphData}>
                       <XAxis dataKey="time" stroke="#ccc" />
                       <YAxis yAxisId="left" stroke="#ff6347" />
                       <YAxis yAxisId="right" orientation="right" stroke="#1e90ff" />
